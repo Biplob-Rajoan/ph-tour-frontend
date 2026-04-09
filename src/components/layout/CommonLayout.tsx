@@ -1,4 +1,3 @@
-
 // import {ReactNode } from 'react';
 // import Navbar from './Navbar';
 // import Footer from './Footer';
@@ -8,31 +7,29 @@
 // }
 
 // export default function CommonLayout({children}: IProps) {
-//   return 
+//   return
 //     <div>
 //         <Navbar />
 //         {children}
 //         <Footer />
 //     </div>
-  
+
 // }
 
-
-
-import { ReactNode } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import { ReactNode } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 interface IProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
-export default function CommonLayout({children}: IProps) {
+export default function CommonLayout({ children }: IProps) {
   return (
-    <div>
-        <Navbar />
-        {children}
-        <Footer />
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className="grow-1">{children}</div>
+      <Footer />
     </div>
   );
 }
