@@ -14,13 +14,13 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { ModeToggle } from "./ModeToggler";
+import { Link } from "react-router";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
-  { active: true, href: "#", label: "Home" },
-  { href: "#", label: "Features" },
-  { href: "#", label: "Pricing" },
-  { href: "#", label: "About" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+
 ];
 
 export default function Navbar() {
@@ -92,12 +92,11 @@ export default function Navbar() {
               <NavigationMenuList className="gap-2">
                 {navigationLinks.map((link, _index) => (
                   <NavigationMenuItem key={link.label}>
-                    <NavigationMenuLink
-                      active={link.active}
+                    <NavigationMenuLink asChild
                       className="py-1.5 font-medium text-muted-foreground hover:text-primary"
                       href={link.href}
                     >
-                      {link.label}
+                      <Link to={link.href}>{link.label}</Link>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 ))}
@@ -110,11 +109,8 @@ export default function Navbar() {
           <ModeToggle>
             
           </ModeToggle>
-          <Button asChild className="text-sm" size="sm" variant="ghost">
-            <a href="#">Sign In</a>
-          </Button>
-          <Button asChild className="text-sm" size="sm">
-            <a href="#">Get Started</a>
+          <Button asChild className="text" size="sm">
+            <Link to="/login">Login</Link>
           </Button>
         </div>
       </div>
